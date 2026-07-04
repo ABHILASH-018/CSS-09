@@ -1,425 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Thala 7. – Premium shoe brand. Thala for a reason.">
-    <link rel="stylesheet" href="styles.css">
+    <title>Thala 7 - Premium Footwear</title>
+    <!-- Include Google Fonts for standard typography styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome icons for the shopping cart and checkout UI pages -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <title>Thala 7.</title>
+    <!-- Linking our main custom CSS stylesheet file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">
-                    <a href="#">Thala <span class="accent">7</span>.</a>
-                </div>
 
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#About">About</a></li>
-                    <li class="has-dropdown">
-                        <a href="#brands">Brands <span class="arrow">&#9662;</span></a>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="#more">More <span class="arrow">&#9662;</span></a>
-                    </li>
-                    <li><a href="#contact">Contact</a></li>
+    <!-- HEADER: Fixed navigation bar. Aligning items horizontally with Flexbox -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Thala <span class="accent">7</span>.</a>
+            </div>
+            
+            <!-- Standard multi-page navigation links -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="product.html">Product Details</a></li>
+                    <li><a href="cart.html">Shopping Cart</a></li>
+                    <li><a href="payment.html">Checkout</a></li>
                 </ul>
-
-                <div class="nav-actions">
-                    <div class="search-box" id="search-box">
-                        <span class="search-icon">&#128269;</span>
-                        <input type="text" placeholder="Search" aria-label="Search products">
-                    </div>
-                    <button class="icon-btn cart-btn" id="cart-btn" aria-label="Cart">
-                       <a href="#cart"></a> &#128722; <span class="badge">0</span>
-                    </button>
-                    <button class="icon-btn profile-btn" id="profile-btn" aria-label="Profile">
-                        &#128100;
-                    </button>
-                </div>
             </nav>
+
+            <!-- Navigation Actions: Cart badge linking to cart.html -->
+            <div class="nav-actions">
+                <a href="cart.html" class="cart-icon-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cart-badge">2</span>
+                </a>
+            </div>
         </div>
     </header>
 
+    <!-- MAIN BODY CONTENT -->
     <main>
-        <section class="Home" id="home">
-            <div class="hero-stripe-bg"></div>
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <p class="brand-label">se<span class="brand-seven">v</span>en<sup>™</sup>
-                        <small class="brand-sub">BY MS DHONI</small>
-                    </p>
-                    <h1>7!! Thala For<br>a <span class="accent">Reason!</span></h1>
-                    <p class="hero-desc">Lorem ipsum dolor sit amet consectetur. Pretium quisque lorem feugiat justo at
-                        ut orci nisi.</p>
-                    <div class="hero-actions">
-                        <a href="#shop-section" class="btn btn-primary" id="shop-now-btn">Shop Now</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="hero-shoe.png" alt="Seven brand athletic shoe" id="hero-shoe-img">
-                </div>
-            </div>
-        </section>
-
-        <section class="shop-section" id="shop-section">
-            <!-- Pure CSS Filter States (Radio Buttons) -->
-            <input type="radio" id="filter-all" name="shoe-filter" class="filter-radio" checked>
-            <input type="radio" id="filter-running" name="shoe-filter" class="filter-radio">
-            <input type="radio" id="filter-lifestyle" name="shoe-filter" class="filter-radio">
-            <input type="radio" id="filter-training" name="shoe-filter" class="filter-radio">
-            <input type="radio" id="filter-outdoor" name="shoe-filter" class="filter-radio">
-
-            <div class="container">
-                <div class="shop-header">
-                    <span class="shop-subtitle">OUR COLLECTION</span>
-                    <h2 class="shop-title">Featured Products</h2>
-                    <div class="filter-bar">
-                        <label for="filter-all" class="filter-btn btn-all">All Shoes</label>
-                        <label for="filter-running" class="filter-btn btn-running">Running</label>
-                        <label for="filter-lifestyle" class="filter-btn btn-lifestyle">Lifestyle</label>
-                        <label for="filter-training" class="filter-btn btn-training">Training</label>
-                        <label for="filter-outdoor" class="filter-btn btn-outdoor">Outdoor</label>
-                    </div>
-                </div>
-
-                <div class="products-grid">
-
-                    <div class="product-card running">
-                        <div class="product-badge">New Release</div>
-                        <div class="product-image-container">
-                            <img src="hero-shoe.png" alt="Thala Impulse 7" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-cat">Running</span>
-                            <h3 class="product-name">Thala Impulse 7</h3>
-                            <div class="product-meta">
-                                <span class="product-price">$149.00</span>
-                                <div class="color-options">
-                                    <span class="color-dot active" style="background-color: #5bb2e6;"
-                                        title="Blue/Gray"></span>
-                                    <span class="color-dot" style="background-color: #ff7e5f;" title="Orange"></span>
-                                </div>
-                            </div>
-                            <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card running">
-                        <div class="product-badge">Best Seller</div>
-                        <div class="product-image-container">
-                            <img src="shoe-1.png" alt="Thala Glide Navy" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-cat">Running</span>
-                            <h3 class="product-name">Thala Glide Navy</h3>
-                            <div class="product-meta">
-                                <span class="product-price">$129.00</span>
-                                <div class="color-options">
-                                    <span class="color-dot active" style="background-color: #1e3c72;"
-                                        title="Navy"></span>
-                                    <span class="color-dot" style="background-color: #2d2d2d;" title="Black"></span>
-                                </div>
-                            </div>
-                            <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 (shoe-2) -->
-                    <div class="product-card training">
-                        <div class="product-badge">Premium</div>
-                        <div class="product-image-container">
-                            <img src="shoe-2.png" alt="Thala Strike Red" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-cat">Training</span>
-                            <h3 class="product-name">Thala Strike Red</h3>
-                            <div class="product-meta">
-                                <span class="product-price">$139.00</span>
-                                <div class="color-options">
-                                    <span class="color-dot active" style="background-color: #e52d27;"
-                                        title="Red"></span>
-                                    <span class="color-dot" style="background-color: #ff7e5f;" title="Orange"></span>
-                                </div>
-                            </div>
-                            <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 (shoe-3) -->
-                    <div class="product-card lifestyle">
-                        <div class="product-badge">Trending</div>
-                        <div class="product-image-container">
-                            <img src="shoe-3.png" alt="Thala Horizon Olive" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-cat">Lifestyle</span>
-                            <h3 class="product-name">Thala Horizon Olive</h3>
-                            <div class="product-meta">
-                                <span class="product-price">$119.00</span>
-                                <div class="color-options">
-                                    <span class="color-dot active" style="background-color: #556b2f;"
-                                        title="Olive"></span>
-                                    <span class="color-dot" style="background-color: #f5f5dc;" title="Beige"></span>
-                                </div>
-                            </div>
-                            <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product 5 (shoe-4) -->
-                    <div class="product-card lifestyle">
-                        <div class="product-badge">Classic</div>
-                        <div class="product-image-container">
-                            <img src="shoe-4.png" alt="Thala Onyx Black" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-cat">Lifestyle</span>
-                            <h3 class="product-name">Thala Onyx Black</h3>
-                            <div class="product-meta">
-                                <span class="product-price">$159.00</span>
-                                <div class="color-options">
-                                    <span class="color-dot active" style="background-color: #111111;"
-                                        title="Onyx"></span>
-                                    <span class="color-dot" style="background-color: #777777;" title="Gray"></span>
-                                </div>
-                            </div>
-                            <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product 6 (shoe-5) -->
-                    <div class="product-card outdoor">
-                        <div class="product-badge">Outdoor</div>
-                        <div class="product-image-container">
-                            <img src="shoe-5.png" alt="Thala Trail Orange" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-cat">Outdoor</span>
-                            <h3 class="product-name">Thala Trail Orange</h3>
-                            <div class="product-meta">
-                                <span class="product-price">$145.00</span>
-                                <div class="color-options">
-                                    <span class="color-dot active" style="background-color: #ff8c00;"
-                                        title="Orange"></span>
-                                    <span class="color-dot" style="background-color: #2d2d2d;" title="Black"></span>
-                                </div>
-                            </div>
-                            <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="About">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2>About Us</h2>
-                        <p>We are a family owned business based in the heart of the city. We have been serving the
-                            community for over 25 years and are committed to providing our customers with the best
-                            possible products and services.</p>
-                    </div>
-                    <div class="about-image">
-                        <img src="shoe-1.png" alt="About Us">
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="cart" class="cart-section">
-            <div class="container">
-                <div class="cart-header">
-                    <span class="cart-subtitle">YOUR BAG</span>
-                    <h2 class="cart-title">Shopping Cart</h2>
-                </div>
-                
-                <div class="cart-grid">
-                    <div class="cart-table-container">
-                        <table class="cart-table">
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="cart-product">
-                                            <div class="cart-product-img-wrapper">
-                                                <img src="hero-shoe.png" alt="Thala Impulse 7" class="cart-product-img">
-                                            </div>
-                                            <div class="cart-product-details">
-                                                <h4 class="cart-product-title">Thala Impulse 7</h4>
-                                                <span class="cart-product-cat">Running</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart-price">$149.00</td>
-                                    <td>
-                                        <div class="quantity-control">
-                                            <button class="qty-btn qty-minus" aria-label="Decrease quantity">&#8722;</button>
-                                            <input type="number" class="qty-input" value="1" min="1" aria-label="Quantity">
-                                            <button class="qty-btn qty-plus" aria-label="Increase quantity">&#43;</button>
-                                        </div>
-                                    </td>
-                                    <td class="cart-total">$149.00</td>
-                                    <td>
-                                        <button class="cart-remove-btn" aria-label="Remove item">
-                                            &#128465;
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-product">
-                                            <div class="cart-product-img-wrapper">
-                                                <img src="shoe-1.png" alt="Thala Impulse 8" class="cart-product-img">
-                                            </div>
-                                            <div class="cart-product-details">
-                                                <h4 class="cart-product-title">Thala Impulse 8</h4>
-                                                <span class="cart-product-cat">Running</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart-price">$169.00</td>
-                                    <td>
-                                        <div class="quantity-control">
-                                            <button class="qty-btn qty-minus" aria-label="Decrease quantity">&#8722;</button>
-                                            <input type="number" class="qty-input" value="1" min="1" aria-label="Quantity">
-                                            <button class="qty-btn qty-plus" aria-label="Increase quantity">&#43;</button>
-                                        </div>
-                                    </td>
-                                    <td class="cart-total">$169.00</td>
-                                    <td>
-                                        <button class="cart-remove-btn" aria-label="Remove item">
-                                            &#128465;
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="cart-summary">
-                        <h3 class="summary-title">Order Summary</h3>
-                        <div class="summary-row">
-                            <span>Subtotal</span>
-                            <span class="summary-subtotal">$318.00</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Estimated Shipping</span>
-                            <span>Free</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Tax</span>
-                            <span>$0.00</span>
-                        </div>
-                        <div class="summary-row total-row">
-                            <span>Total</span>
-                            <span class="summary-total">$318.00</span>
-                        </div>
-                        
-                        <div class="coupon-section">
-                            <input type="text" placeholder="Promo Code" class="coupon-input">
-                            <button class="coupon-btn">Apply</button>
-                        </div>
-                        
-                        <button class="btn btn-primary checkout-btn">Proceed to Checkout</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="payment" class="payment-section">
-            <div class="container">
-                <div class="payment-header">
-                    <span class="payment-subtitle">PAYMENT</span>
-                    <h2 class="payment-title">Payment Method</h2>
-                </div>
-                
-                <div class="payment-grid">
-                    <div class="payment-methods">
-                        <div class="payment-method">
-                            <div class="payment-method-header">
-                                <span class="payment-method-title">Payment Options</span>
-                            </div>  
-                            <div class="payment-method-body">
-                                <div class="payment-method-item">
-                                    <input type="radio" name="payment-method" id="credit-card" class="payment-method-radio" checked>
-                                    <label for="credit-card" class="payment-method-label">
-                                        <span class="payment-method-icon">
-                                            <i class="fas fa-credit-card"></i>
-                                        </span>
-                                        <span class="payment-method-name">Credit Card</span>
-                                    </label>
-                                </div>
-                                <div class="payment-method-item">
-                                    <input type="radio" name="payment-method" id="paypal" class="payment-method-radio">
-                                    <label for="paypal" class="payment-method-label">
-                                        <span class="payment-method-icon">
-                                            <i class="fab fa-paypal"></i>
-                                        </span>
-                                        <span class="payment-method-name">PayPal</span>
-                                    </label>
-                                </div>
-                                <div class="payment-method-item">
-                                    <input type="radio" name="payment-method" id="stripe" class="payment-method-radio">
-                                    <label for="stripe" class="payment-method-label">
-                                        <span class="payment-method-icon">
-                                            <i class="fab fa-stripe"></i>
-                                        </span>
-                                        <span class="payment-method-name">Stripe</span>
-                                    </label>
-                                </div>
-                            </div>                          
-                        </div>
-                    </div>
-                    
-                    <div class="cart-summary">
-                        <h3 class="summary-title">Order Summary</h3>
-                        <div class="summary-row">
-                            <span>Subtotal</span>
-                            <span class="summary-subtotal">$318.00</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Estimated Shipping</span>
-                            <span>Free</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Tax</span>
-                            <span>$0.00</span>
-                        </div>
-                        <div class="summary-row total-row">
-                            <span>Total</span>
-                            <span class="summary-total">$318.00</span>
-                        </div>
-                        
-                        <div class="coupon-section">
-                            <input type="text" placeholder="Promo Code" class="coupon-input">
-                            <button class="coupon-btn">Apply</button>
-                        </div>
-                        
-                        <button class="btn btn-primary checkout-btn">Proceed to Checkout</button>
-                    </div>
-                </div>
-            </div>
-        </section>
         
-    </main>
-</body>
+        <!-- HERO SECTION: Highlighting signature footwear brand with large image -->
+        <!-- Layout uses a horizontal Flexbox grid splitting the text and image sections -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-text-content">
+                    <h1>7!! Thala For <br>a <span class="accent">Reason!</span></h1>
+                    <p>
+                        Step into greatness with the signature collection designed for speed, stability, and everyday comfort. Experience the perfect blend of athletic performance and premium craftsmanship.
+                    </p>
+                    <!-- "Shop Now" hero CTA pointing directly to the product display page (Requirement 3) -->
+                    <a href="product.html" class="btn btn-primary">Shop Now</a>
+                </div>
+                
+                <div class="hero-image-wrapper">
+                    <!-- Main hero showcase image -->
+                    <img src="hero-shoe.png" alt="Featured Thala Impulse 7 Shoe">
+                </div>
+            </div>
+        </section>
 
+        <!-- FEATURED PRODUCTS SECTION: Displayed in a responsive CSS grid layout -->
+        <section class="featured-section">
+            <div class="container">
+                <h2 class="section-title">Our Featured Collection</h2>
+                
+                <div class="products-grid">
+                    
+                    <!-- Product 1: Thala Impulse 7 -->
+                    <div class="product-card">
+                        <span class="product-badge">Sale</span>
+                        <div class="product-img-holder">
+                            <img src="hero-shoe.png" alt="Thala Impulse 7 Shoe">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Running</span>
+                            <h3 class="product-name"><a href="product.html">Thala Impulse 7</a></h3>
+                            <div class="product-price">
+                                <span class="original-price">$180.00</span>$149.00
+                            </div>
+                            <a href="product.html" class="view-details-btn">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: Thala Glide Navy -->
+                    <div class="product-card">
+                        <div class="product-img-holder">
+                            <img src="shoe-1.png" alt="Thala Glide Navy Shoe">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Running</span>
+                            <h3 class="product-name"><a href="product.html">Thala Glide Navy</a></h3>
+                            <div class="product-price">$129.00</div>
+                            <a href="product.html" class="view-details-btn">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 3: Thala Strike Red -->
+                    <div class="product-card">
+                        <span class="product-badge">Best Seller</span>
+                        <div class="product-img-holder">
+                            <img src="shoe-2.png" alt="Thala Strike Red Shoe">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Training</span>
+                            <h3 class="product-name"><a href="product.html">Thala Strike Red</a></h3>
+                            <div class="product-price">$139.00</div>
+                            <a href="product.html" class="view-details-btn">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Product 4: Thala Horizon Olive -->
+                    <div class="product-card">
+                        <div class="product-img-holder">
+                            <img src="shoe-3.png" alt="Thala Horizon Olive Shoe">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category">Lifestyle</span>
+                            <h3 class="product-name"><a href="product.html">Thala Horizon Olive</a></h3>
+                            <div class="product-price">$119.00</div>
+                            <a href="product.html" class="view-details-btn">View Details</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER: Standard copyright sections and policy links -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Thala 7 Footwear Co. All rights reserved. Designed for Intro to CSS school assignment.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
 </html>

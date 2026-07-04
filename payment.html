@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout - Thala 7</title>
+    <!-- Include Google Fonts for layout consistency -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Linking our main custom CSS stylesheet file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- HEADER: Fixed navigation bar (matches other pages) -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Thala <span class="accent">7</span>.</a>
+            </div>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product.html">Product Details</a></li>
+                    <li><a href="cart.html">Shopping Cart</a></li>
+                    <li><a href="payment.html" class="active">Checkout</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="cart.html" class="cart-icon-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cart-badge">2</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN BODY CONTENT -->
+    <main>
+        <div class="container">
+            <h1 style="margin: 30px 0 10px 0; font-size: 32px; color: var(--primary-color);">Secure Checkout</h1>
+            
+            <!-- Two-column Flexbox layout: Left for Payment Form, Right for Order Overview -->
+            <div class="payment-layout">
+                
+                <!-- LEFT CONTAINER: Payment Method Choices & Billing Form (Requirement 6) -->
+                <div class="payment-left-container">
+                    
+                    <!-- 1. Select Payment Method Card -->
+                    <div class="payment-card">
+                        <h2>1. Select Payment Method</h2>
+                        
+                        <div class="method-options">
+                            <!-- Option 1: Credit / Debit Card -->
+                            <label class="method-option">
+                                <input type="radio" name="payment-method" id="cc-option" checked onclick="toggleCardForm(true)">
+                                <i class="far fa-credit-card"></i>
+                                <span>Credit / Debit Card</span>
+                            </label>
+                            
+                            <!-- Option 2: PayPal -->
+                            <label class="method-option">
+                                <input type="radio" name="payment-method" id="paypal-option" onclick="toggleCardForm(false)">
+                                <i class="fab fa-paypal"></i>
+                                <span>PayPal</span>
+                            </label>
+                            
+                            <!-- Option 3: Stripe Express -->
+                            <label class="method-option">
+                                <input type="radio" name="payment-method" id="stripe-option" onclick="toggleCardForm(false)">
+                                <i class="fab fa-stripe"></i>
+                                <span>Stripe Express</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 2. Billing & Credit Card Info Card (Requirement 6) -->
+                    <!-- Toggled visible/hidden based on selected payment options -->
+                    <div class="payment-card" id="credit-card-section">
+                        <h2>2. Enter Card Information</h2>
+                        
+                        <form id="checkout-form" onsubmit="processPayment(event)">
+                            <!-- Cardholder Name Input -->
+                            <div class="form-group">
+                                <label for="card-name">Cardholder Name</label>
+                                <input type="text" id="card-name" placeholder="e.g. Mahendra Singh Dhoni" required>
+                            </div>
+                            
+                            <!-- Card Number Input -->
+                            <div class="form-group">
+                                <label for="card-num">Card Number</label>
+                                <input type="text" id="card-num" placeholder="1234 5678 9101 1121" maxlength="19" required>
+                            </div>
+                            
+                            <!-- Row layout for Expiry and CVV inputs -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="card-expiry">Expiry Date</label>
+                                    <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-cvv">CVV Code</label>
+                                    <input type="password" id="card-cvv" placeholder="123" maxlength="3" required>
+                                </div>
+                            </div>
+                            
+                            <!-- Row layout for Country and Zip code inputs -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="billing-country">Country</label>
+                                    <select id="billing-country" required>
+                                        <option value="">Choose Country</option>
+                                        <option value="US">United States</option>
+                                        <option value="IN" selected>India</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="AU">Australia</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="billing-zip">Billing Zip / Post Code</label>
+                                    <input type="text" id="billing-zip" placeholder="834002" required>
+                                </div>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 16px; margin-top: 15px;">
+                                <i class="fas fa-lock" style="margin-right: 8px;"></i> Authorize &amp; Pay $305.80
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Alternate Gateway redirection message card -->
+                    <div class="payment-card" id="alt-redirect-section" style="display: none; text-align: center; padding: 40px 20px;">
+                        <p style="font-size: 15px; margin-bottom: 20px; color: #555555;">
+                            You will be redirected securely to authenticate and complete your transaction with the selected payment gateway.
+                        </p>
+                        <button type="button" class="btn btn-primary" onclick="processAltRedirect()">
+                            Proceed to Gateway
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT CONTAINER: Order Summary Overview Card -->
+                <div class="payment-right-container">
+                    <div class="overview-card">
+                        <h3>Order Overview</h3>
+                        
+                        <!-- List of items being checked out -->
+                        <div class="mini-items-list">
+                            <div class="mini-item">
+                                <span class="mini-item-name">Thala Impulse 7 (Qty: 1)</span>
+                                <span class="mini-item-price">$149.00</span>
+                            </div>
+                            <div class="mini-item">
+                                <span class="mini-item-name">Thala Glide Navy (Qty: 1)</span>
+                                <span class="mini-item-price">$129.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-row" style="font-size: 13px; margin-bottom: 8px;">
+                            <span>Subtotal</span>
+                            <span>$278.00</span>
+                        </div>
+                        
+                        <div class="summary-row" style="font-size: 13px; margin-bottom: 8px;">
+                            <span>Sales Tax (10%)</span>
+                            <span>$27.80</span>
+                        </div>
+                        
+                        <div class="summary-row" style="font-size: 13px; margin-bottom: 8px; color: var(--accent-color); font-weight: 600;">
+                            <span>Promo Discount Applied</span>
+                            <span>-$30.58</span>
+                        </div>
+                        
+                        <div class="summary-row total-row">
+                            <span>Payable Total</span>
+                            <span>$275.22</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER (matches other pages) -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Thala 7 Footwear Co. All rights reserved. Designed for Intro to CSS school assignment.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS: Toggles card input block and simulates submission confirmation -->
+    <script>
+        // 1. Toggles credit card input details visibility based on radio buttons selection
+        function toggleCardForm(showCardForm) {
+            const ccSection = document.getElementById('credit-card-section');
+            const altSection = document.getElementById('alt-redirect-section');
+
+            if (showCardForm) {
+                ccSection.style.display = 'block';
+                altSection.style.display = 'none';
+            } else {
+                ccSection.style.display = 'none';
+                altSection.style.display = 'block';
+            }
+        }
+
+        // 2. Simulates submitting CC payment with simple validation popup
+        function processPayment(event) {
+            // Prevent actual browser form reload action
+            event.preventDefault();
+            
+            const cardHolder = document.getElementById('card-name').value;
+            const cardNum = document.getElementById('card-num').value;
+            
+            // Show alert box message confirming order submission
+            alert('Thank you, ' + cardHolder + '!\nYour payment has been successfully processed.\nCard Number Used: **** **** **** ' + cardNum.slice(-4) + '\nOrder Confirmed! Redirecting to Home page.');
+            
+            // Redirect user back to index landing page
+            window.location.href = 'index.html';
+        }
+
+        // 3. Simulates alternate gateway redirect click
+        function processAltRedirect() {
+            alert('Redirecting to external checkout provider gateway in secure sandbox mode.');
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+</html>
