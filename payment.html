@@ -24,100 +24,103 @@
                 </ul>
             </nav>
             <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
                 <a href="cart.html" class="cart-icon-btn">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="badge" id="cart-badge">2</span>
                 </a>
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
             </div>
         </div>
     </header>
 
     <main>
         <div class="container">
-            <h1 style="margin: 30px 0 10px 0; font-size: 32px; color: var(--primary-color);">Secure Checkout</h1>
+            <h1 style="margin: 30px 0 10px 0; font-size: 32px; color: var(--primary-color);">Checkout</h1>
 
             <div class="payment-layout">
-
                 <div class="payment-left-container">
-
                     <div class="payment-card">
-                        <h2>1. Select Payment Method</h2>
-                        <div class="method-options">
-                            <label class="method-option">
-                                <input type="radio" name="payment-method" id="cc-option" checked>
-                                <i class="far fa-credit-card"></i>
-                                <span>Credit / Debit Card</span>
-                            </label>
-                            <label class="method-option">
-                                <input type="radio" name="payment-method" id="paypal-option">
-                                <i class="fab fa-paypal"></i>
-                                <span>PayPal</span>
-                            </label>
-                            <label class="method-option">
-                                <input type="radio" name="payment-method" id="stripe-option">
-                                <i class="fab fa-stripe"></i>
-                                <span>Stripe Express</span>
-                            </label>
-                            <label class="method-option">
-                                <input type="radio" name="payment-method" id="razorpay-option">
-                                <span class="razorpay-icon" style="margin-right: 10px;">R</span>
-                                <span>Razorpay</span>
-                            </label>
+                        <h2>Contact Details</h2>
+                        <div class="form-group">
+                            <label for="checkout-email">Email ID</label>
+                            <input type="email" id="checkout-email" placeholder="e.g. msdhoni@thala7.com" required>
                         </div>
                     </div>
 
-                    <div class="payment-card" id="credit-card-section">
-                        <h2>2. Enter Card Information</h2>
-                        <form id="checkout-form">
-                            <div class="form-group">
-                                <label for="card-name">Cardholder Name</label>
-                                <input type="text" id="card-name" placeholder="e.g. Mahendra Singh Dhoni" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="card-num">Card Number</label>
-                                <input type="text" id="card-num" placeholder="1234 5678 9101 1121" maxlength="19" required>
-                            </div>
+                    <div class="payment-card">
+                        <h2>Payment Method</h2>
+                        <div class="method-options">
+                            <label class="method-option">
+                                <input type="radio" name="pay-method" checked>
+                                <i class="far fa-credit-card"></i> Card
+                            </label>
+                            <label class="method-option">
+                                <input type="radio" name="pay-method">
+                                <i class="fab fa-paypal"></i> PayPal
+                            </label>
+                            <label class="method-option">
+                                <input type="radio" name="pay-method">
+                                <i class="fab fa-stripe"></i> Stripe
+                            </label>
+                            <label class="method-option">
+                                <input type="radio" name="pay-method">
+                                <span class="razorpay-icon">R</span> Razorpay
+                            </label>
+                        </div>
 
+                        <form id="payment-card-form">
+                            <div class="form-group">
+                                <label for="card-holder-name">Cardholder Name</label>
+                                <input type="text" id="card-holder-name" placeholder="e.g. Mahendra Singh Dhoni" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-number">Card Number</label>
+                                <input type="text" id="card-number" placeholder="1234 5678 9101 1121" maxlength="19" required>
+                            </div>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="card-expiry">Expiry Date</label>
-                                    <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required>
+                                    <label for="card-expiry-date">Expiry Date</label>
+                                    <input type="text" id="card-expiry-date" placeholder="MM/YY" maxlength="5" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="card-cvv">CVV Code</label>
-                                    <input type="password" id="card-cvv" placeholder="123" maxlength="3" required>
+                                    <label for="card-cvv-code">CVV Code</label>
+                                    <input type="password" id="card-cvv-code" placeholder="123" maxlength="3" required>
                                 </div>
                             </div>
-
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="billing-country">Country</label>
-                                    <select id="billing-country" required>
+                                    <label for="billing-country-select">Country</label>
+                                    <select id="billing-country-select" required>
                                         <option value="">Choose Country</option>
                                         <option value="US">United States</option>
                                         <option value="IN" selected>India</option>
                                         <option value="UK">United Kingdom</option>
                                         <option value="CA">Canada</option>
-                                        <option value="AU">Australia</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="billing-zip">Billing Zip / Post Code</label>
-                                    <input type="text" id="billing-zip" placeholder="834002" required>
+                                    <label for="billing-zip-code">Billing Zip / Post Code</label>
+                                    <input type="text" id="billing-zip-code" placeholder="834002" required>
                                 </div>
                             </div>
-
-                            <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 16px; margin-top: 15px;">
-                                <i class="fas fa-lock" style="margin-right: 8px;"></i> Authorize &amp; Pay $305.80
-                            </button>
                         </form>
                     </div>
+
+                    <a href="cart.html" class="continue-shopping">
+                        <i class="fas fa-arrow-left"></i> Continue Shopping
+                    </a>
                 </div>
 
                 <div class="payment-right-container">
                     <div class="overview-card">
-                        <h3>Order Overview</h3>
-
+                        <h3>Order Summary</h3>
+                        
                         <div class="mini-items-list">
                             <div class="mini-item">
                                 <span class="mini-item-name">Thala Impulse 7 (Qty: 1)</span>
@@ -129,19 +132,34 @@
                             </div>
                         </div>
 
-                        <div class="summary-row" style="font-size: 13px; margin-bottom: 8px;">
+                        <div class="coupon-container" style="background-color: var(--bg-white); border-color: var(--border-color); margin: 0 0 20px 0; padding: 12px;">
+                            <h3 style="font-size: 13px;">Coupon Code</h3>
+                            <div class="coupon-group">
+                                <input type="text" class="coupon-input" placeholder="Promo Code" style="padding: 6px 10px; font-size: 12px;">
+                                <button class="btn btn-primary" type="button" style="padding: 6px 12px; font-size: 12px;">Apply</button>
+                            </div>
+                        </div>
+
+                        <div class="summary-row">
                             <span>Subtotal</span>
                             <span>$278.00</span>
                         </div>
-                        <div class="summary-row" style="font-size: 13px; margin-bottom: 8px;">
-                            <span>Sales Tax (10%)</span>
+                        <div class="summary-row">
+                            <span>Estimated Shipping</span>
+                            <span style="color: green; font-weight: bold;">Free</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (10%)</span>
                             <span>$27.80</span>
                         </div>
-
                         <div class="summary-row total-row">
                             <span>Payable Total</span>
                             <span>$305.80</span>
                         </div>
+
+                        <button class="btn btn-primary checkout-btn" type="submit" form="payment-card-form">
+                            <i class="fas fa-lock" style="margin-right: 8px;"></i> Pay Now $305.80
+                        </button>
 
                         <div class="payment-icons-row">
                             <span class="label-text">Accepted:</span>
@@ -152,7 +170,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </main>

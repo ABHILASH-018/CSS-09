@@ -24,23 +24,28 @@
                 </ul>
             </nav>
             <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
                 <a href="cart.html" class="cart-icon-btn">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="badge" id="cart-badge">2</span>
                 </a>
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
             </div>
         </div>
     </header>
 
     <main>
         <div class="container">
-            <h1 style="margin: 30px 0 10px 0; font-size: 32px; color: var(--primary-color);">Your Shopping Cart</h1>
+            <h1 style="margin: 30px 0 10px 0; font-size: 32px; color: var(--primary-color);">Shopping Cart</h1>
 
             <div class="cart-layout">
-
                 <div class="cart-left-container">
-
-                    <table class="cart-table" id="cart-items-table">
+                    <table class="cart-table">
                         <thead>
                             <tr>
                                 <th>Product</th>
@@ -51,7 +56,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="cart-item-row">
+                            <tr>
                                 <td>
                                     <div class="cart-product-info">
                                         <img src="hero-shoe.png" class="cart-product-image" alt="Thala Impulse 7">
@@ -61,23 +66,22 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="unit-price">$149.00</td>
+                                <td>$149.00</td>
                                 <td>
                                     <div class="qty-selector" style="width: fit-content;">
-                                        <button type="button" class="qty-btn">&minus;</button>
-                                        <input type="number" class="qty-input row-qty" value="1" min="1" max="99">
-                                        <button type="button" class="qty-btn">&plus;</button>
+                                        <button class="qty-btn" type="button">&minus;</button>
+                                        <input type="number" class="qty-input" value="1" min="1" max="99">
+                                        <button class="qty-btn" type="button">&plus;</button>
                                     </div>
                                 </td>
-                                <td class="row-total">$149.00</td>
+                                <td>$149.00</td>
                                 <td>
-                                    <button type="button" class="remove-btn">
+                                    <button class="remove-btn" type="button">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
                                 </td>
                             </tr>
-
-                            <tr class="cart-item-row">
+                            <tr>
                                 <td>
                                     <div class="cart-product-info">
                                         <img src="shoe-1.png" class="cart-product-image" alt="Thala Glide Navy">
@@ -87,17 +91,17 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="unit-price">$129.00</td>
+                                <td>$129.00</td>
                                 <td>
                                     <div class="qty-selector" style="width: fit-content;">
-                                        <button type="button" class="qty-btn">&minus;</button>
-                                        <input type="number" class="qty-input row-qty" value="1" min="1" max="99">
-                                        <button type="button" class="qty-btn">&plus;</button>
+                                        <button class="qty-btn" type="button">&minus;</button>
+                                        <input type="number" class="qty-input" value="1" min="1" max="99">
+                                        <button class="qty-btn" type="button">&plus;</button>
                                     </div>
                                 </td>
-                                <td class="row-total">$129.00</td>
+                                <td>$129.00</td>
                                 <td>
-                                    <button type="button" class="remove-btn">
+                                    <button class="remove-btn" type="button">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
                                 </td>
@@ -107,44 +111,40 @@
 
                     <div class="coupon-container">
                         <h3>Have a Coupon Code?</h3>
-                        <p style="font-size: 13px; color: #666666; margin-bottom: 12px;">Enter your code below to receive discounts on your footwear purchase.</p>
+                        <p style="font-size: 13px; color: #666666; margin-top: 4px;">Enter your code below to receive discounts on your footwear purchase.</p>
                         <div class="coupon-group">
-                            <input type="text" id="coupon-field" class="coupon-input" placeholder="Promo Code (e.g. THALA7)">
-                            <button type="button" class="btn btn-primary" style="padding: 10px 20px;">Apply Code</button>
+                            <input type="text" class="coupon-input" placeholder="Promo Code (e.g. THALA7)">
+                            <button class="btn btn-primary" type="button" style="padding: 10px 20px;">Apply Code</button>
                         </div>
-                        <span id="coupon-status-msg" class="coupon-status"></span>
                     </div>
 
+                    <a href="product.html" class="continue-shopping">
+                        <i class="fas fa-arrow-left"></i> Continue Shopping
+                    </a>
                 </div>
 
                 <div class="cart-right-container">
                     <div class="summary-card">
                         <h2>Order Summary</h2>
-
                         <div class="summary-row">
                             <span>Subtotal</span>
-                            <span id="summary-subtotal">$278.00</span>
+                            <span>$278.00</span>
                         </div>
-
                         <div class="summary-row">
                             <span>Estimated Shipping</span>
                             <span style="color: green; font-weight: bold;">Free</span>
                         </div>
-
                         <div class="summary-row">
                             <span>Tax (10%)</span>
-                            <span id="summary-tax">$27.80</span>
+                            <span>$27.80</span>
                         </div>
-
                         <div class="summary-row total-row">
                             <span>Total Price</span>
-                            <span id="summary-total">$305.80</span>
+                            <span>$305.80</span>
                         </div>
-
                         <a href="payment.html" class="btn btn-primary checkout-btn">
                             Proceed to Checkout <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
                         </a>
-
                         <div class="payment-icons-row">
                             <span class="label-text">We Accept:</span>
                             <i class="fab fa-cc-visa" title="Visa"></i>
@@ -154,7 +154,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </main>
