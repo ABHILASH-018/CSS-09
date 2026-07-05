@@ -150,31 +150,41 @@
 
     <!-- INTERACTIVE SCRIPTS: Basic, clear JavaScript for dynamic actions -->
     <script>
-        // 1. Swaps the main showcase image and updates the active thumbnail border
+        // 1. Swaps the main product image and adds a border to the active thumbnail
         function changeImage(imagePath, clickedThumbnail) {
-            // Find the main image element and update its source
+            // Change the src of the main image
             document.getElementById('main-product-image').src = imagePath;
             
-            // Find all thumbnails, remove their 'active' visual style class
-            const thumbnails = document.querySelectorAll('.gallery-thumbnail');
-            thumbnails.forEach(thumb => {
-                thumb.classList.remove('active');
-            });
+            // Get all thumbnails
+            var thumbnails = document.getElementsByClassName('gallery-thumbnail');
             
-            // Apply the 'active' border class to the selected thumbnail
+            // Loop through thumbnails to remove the 'active' class
+            for (var i = 0; i < thumbnails.length; i++) {
+                thumbnails[i].classList.remove('active');
+            }
+            
+            // Add the 'active' class to the one we just clicked
             clickedThumbnail.classList.add('active');
         }
 
-        // 2. Adjusts quantity spinner input box values
+        // 2. Changes the value of the quantity input spinner
         function updateQty(amount) {
-            const qtyInput = document.getElementById('qty-value');
-            let currentVal = parseInt(qtyInput.value) || 1;
-            currentVal += amount;
+            var qtyInput = document.getElementById('qty-value');
+            var currentVal = parseInt(qtyInput.value);
             
-            // Ensure quantity doesn't fall below 1
+            // Check if current quantity is not a valid number
+            if (isNaN(currentVal)) {
+                currentVal = 1;
+            }
+            
+            // Add or subtract the amount
+            currentVal = currentVal + amount;
+            
+            // Make sure quantity is at least 1
             if (currentVal < 1) {
                 currentVal = 1;
             }
+            
             qtyInput.value = currentVal;
         }
     </script>

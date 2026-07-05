@@ -199,65 +199,83 @@
 
     <!-- INTERACTIVE SCRIPTS: Basic JS variables and calculations -->
     <script>
-        // Track promo code application state
-        let isPromoApplied = false;
+        // Track whether the promo code is applied
+        var isPromoApplied = false;
 
         // 1. Changes item row quantity with button increments
         function changeQtyRow(button, amount) {
-            // Traverse up to find the input spinner element in the same container
-            const spinner = button.parentElement;
-            const inputField = spinner.querySelector('.row-qty');
-            let currentVal = parseInt(inputField.value) || 1;
+            var parentDiv = button.parentNode;
+            var inputField = parentDiv.getElementsByClassName('row-qty')[0];
+            var currentVal = parseInt(inputField.value);
             
-            currentVal += amount;
+            // If quantity is not a number, set it to 1
+            if (isNaN(currentVal)) {
+                currentVal = 1;
+            }
+            
+            // Adjust the quantity
+            currentVal = currentVal + amount;
+            
+            // Do not let quantity go below 1
             if (currentVal < 1) {
                 currentVal = 1;
             }
+            
             inputField.value = currentVal;
             
-            // Recompute row totals and summaries
+            // Update the totals
             recalcCart();
         }
 
         // 2. Removes an item row completely
         function removeCartRow(button) {
             // Find parent table row and remove it
-            const row = button.closest('tr');
+            var row = button.parentNode.parentNode; // tr is parent of td, which is parent of button
             if (row) {
-                row.remove();
+                row.parentNode.removeChild(row);
                 recalcCart();
             }
         }
 
         // 3. Recalculates subtotal, taxes, discount, and grand total prices
         function recalcCart() {
-            const itemRows = document.querySelectorAll('.cart-item-row');
-            let totalSubtotal = 0;
-            let totalItemsCount = 0;
+            var itemRows = document.getElementsByClassName('cart-item-row');
+            var totalSubtotal = 0;
+            var totalItemsCount = 0;
 
-            itemRows.forEach(row => {
-                // Get unit price value (stripping out $ symbol)
-                const priceText = row.querySelector('.unit-price').innerText;
-                const priceVal = parseFloat(priceText.replace('$', '')) || 0;
+            // Loop through each row in the cart table
+            for (var i = 0; i < itemRows.length; i++) {
+                var row = itemRows[i];
                 
-                // Get current quantity input
-                const qtyInput = row.querySelector('.row-qty');
-                const qtyVal = parseInt(qtyInput.value) || 1;
+                // Get unit price text (e.g. "$149.00") and convert to number
+                var priceText = row.getElementsByClassName('unit-price')[0].innerText;
+                // Slice off the '$' symbol at index 0 and parse float
+                var priceVal = parseFloat(priceText.slice(1));
+                if (isNaN(priceVal)) {
+                    priceVal = 0;
+                }
+                
+                // Get quantity input value
+                var qtyInput = row.getElementsByClassName('row-qty')[0];
+                var qtyVal = parseInt(qtyInput.value);
+                if (isNaN(qtyVal)) {
+                    qtyVal = 1;
+                }
                 
                 // Calculate item row total
-                const rowTotal = priceVal * qtyVal;
-                row.querySelector('.row-total').innerText = '$' + rowTotal.toFixed(2);
+                var rowTotal = priceVal * qtyVal;
+                row.getElementsByClassName('row-total')[0].innerText = '$' + rowTotal.toFixed(2);
                 
-                totalSubtotal += rowTotal;
-                totalItemsCount += qtyVal;
-            });
+                totalSubtotal = totalSubtotal + rowTotal;
+                totalItemsCount = totalItemsCount + qtyVal;
+            }
 
-            // Calculate taxes (10% sales tax standard rate)
-            const salesTax = totalSubtotal * 0.10;
+            // Calculate 10% tax
+            var salesTax = totalSubtotal * 0.10;
             
-            // Calculate coupon discount if applied (10% off of subtotal + tax)
-            let discountVal = 0;
-            const discountRow = document.getElementById('discount-display-row');
+            // Calculate coupon discount (10% off of subtotal + tax if applied)
+            var discountVal = 0;
+            var discountRow = document.getElementById('discount-display-row');
             
             if (isPromoApplied) {
                 discountVal = (totalSubtotal + salesTax) * 0.10;
@@ -267,35 +285,35 @@
                 discountRow.style.display = 'none';
             }
 
-            // Calculate grand total
-            const grandTotal = totalSubtotal + salesTax - discountVal;
+            // Calculate final total
+            var grandTotal = totalSubtotal + salesTax - discountVal;
 
-            // Render updated totals to the DOM
+            // Update the text values on the page
             document.getElementById('summary-subtotal').innerText = '$' + totalSubtotal.toFixed(2);
             document.getElementById('summary-tax').innerText = '$' + salesTax.toFixed(2);
             document.getElementById('summary-total').innerText = '$' + grandTotal.toFixed(2);
             
-            // Update cart badge number count
+            // Update the cart item count badge in header
             document.getElementById('cart-badge').innerText = totalItemsCount;
         }
 
         // 4. Applies promo code ("THALA7") to give a 10% discount
         function applyPromoCode() {
-            const promoInput = document.getElementById('coupon-field');
-            const statusMsg = document.getElementById('coupon-status-msg');
-            const codeVal = promoInput.value.trim().toUpperCase();
+            var promoInput = document.getElementById('coupon-field');
+            var statusMsg = document.getElementById('coupon-status-msg');
+            var codeVal = promoInput.value.trim().toUpperCase();
 
             if (codeVal === 'THALA7') {
                 isPromoApplied = true;
-                statusMsg.innerText = 'Success: Promo code applied successfully (10% Discount)!';
+                statusMsg.innerText = 'Success: 10% promo code applied!';
                 statusMsg.style.color = 'green';
             } else {
                 isPromoApplied = false;
-                statusMsg.innerText = 'Error: Invalid promo code. Try using code "THALA7".';
+                statusMsg.innerText = 'Error: Invalid code. Try code "THALA7".';
                 statusMsg.style.color = 'red';
             }
 
-            // Trigger recalc to apply changes
+            // Re-calculate the totals with/without discount
             recalcCart();
         }
     </script>

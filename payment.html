@@ -218,10 +218,10 @@
 
     <!-- INTERACTIVE SCRIPTS: Toggles card input block and simulates submission confirmation -->
     <script>
-        // 1. Toggles credit card input details visibility based on radio buttons selection
+        // 1. Shows or hides credit card inputs based on choice
         function toggleCardForm(showCardForm) {
-            const ccSection = document.getElementById('credit-card-section');
-            const altSection = document.getElementById('alt-redirect-section');
+            var ccSection = document.getElementById('credit-card-section');
+            var altSection = document.getElementById('alt-redirect-section');
 
             if (showCardForm) {
                 ccSection.style.display = 'block';
@@ -232,22 +232,29 @@
             }
         }
 
-        // 2. Simulates submitting CC payment with simple validation popup
+        // 2. Processes credit card payment simulation
         function processPayment(event) {
-            // Prevent actual browser form reload action
+            // Stop form from reloading page automatically
             event.preventDefault();
             
-            const cardHolder = document.getElementById('card-name').value;
-            const cardNum = document.getElementById('card-num').value;
+            var cardHolder = document.getElementById('card-name').value;
+            var cardNum = document.getElementById('card-num').value;
             
-            // Show alert box message confirming order submission
-            alert('Thank you, ' + cardHolder + '!\nYour payment has been successfully processed.\nCard Number Used: **** **** **** ' + cardNum.slice(-4) + '\nOrder Confirmed! Redirecting to Home page.');
+            // Extract last 4 digits of the card number
+            var lastFourDigits = cardNum.substring(cardNum.length - 4);
             
-            // Redirect user back to index landing page
+            // Show custom alert box message
+            var alertMessage = 'Thank you, ' + cardHolder + '!\n' +
+                               'Your payment has been successfully processed.\n' +
+                               'Card Number: **** **** **** ' + lastFourDigits + '\n' +
+                               'Order Confirmed! Returning to Home page.';
+            alert(alertMessage);
+            
+            // Redirect to home page
             window.location.href = 'index.html';
         }
 
-        // 3. Simulates alternate gateway redirect click
+        // 3. Simulates alternate gateway redirection
         function processAltRedirect() {
             alert('Redirecting to external checkout provider gateway in secure sandbox mode.');
             window.location.href = 'index.html';
