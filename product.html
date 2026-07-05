@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thala Impulse 7 - Product Details</title>
-    <!-- Include Google Fonts for typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Linking our main custom CSS stylesheet file -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- HEADER: Fixed navigation bar (matches index.html) -->
     <header>
         <div class="container nav-container">
             <div class="logo">
                 <a href="index.html">Thala <span class="accent">7</span>.</a>
             </div>
-            
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -28,7 +23,6 @@
                     <li><a href="payment.html">Checkout</a></li>
                 </ul>
             </nav>
-
             <div class="nav-actions">
                 <a href="cart.html" class="cart-icon-btn">
                     <i class="fas fa-shopping-cart"></i>
@@ -38,68 +32,56 @@
         </div>
     </header>
 
-    <!-- MAIN BODY CONTENT -->
     <main>
         <div class="container">
-            
-            <!-- Breadcrumbs (simple path indicating page location) -->
+
             <p style="font-size: 13px; color: #888888; margin: 20px 0 10px 0;">
                 Home &gt; Shoes &gt; <span style="color: var(--primary-color); font-weight: 600;">Thala Impulse 7</span>
             </p>
 
-            <!-- Product Showcase Layout: Split into image column (left) and details panel (right) -->
             <div class="product-detail-layout">
-                
-                <!-- LEFT COLUMN: Main Image and Scrolling Thumbnail Gallery (Requirement 1) -->
+
                 <div class="product-media-column">
-                    <!-- Main Showcase Image -->
                     <div class="main-image-container">
                         <img src="hero-shoe.png" id="main-product-image" alt="Thala Impulse 7 Main View">
                     </div>
-                    
-                    <!-- Scrolling Thumbnail Gallery Container (Requirement 4) -->
-                    <!-- Uses CSS horizontal scrolling ('overflow-x: auto') -->
+
                     <div class="product-gallery-scroll">
-                        <!-- Click events pass the image path and the thumbnail itself to update the main view -->
-                        <div class="gallery-thumbnail active" onclick="changeImage('hero-shoe.png', this)">
+                        <div class="gallery-thumbnail active">
                             <img src="hero-shoe.png" alt="Thala Impulse 7 Orange">
                         </div>
-                        <div class="gallery-thumbnail" onclick="changeImage('shoe-1.png', this)">
+                        <div class="gallery-thumbnail">
                             <img src="shoe-1.png" alt="Thala Glide Navy">
                         </div>
-                        <div class="gallery-thumbnail" onclick="changeImage('shoe-2.png', this)">
+                        <div class="gallery-thumbnail">
                             <img src="shoe-2.png" alt="Thala Strike Red">
                         </div>
-                        <div class="gallery-thumbnail" onclick="changeImage('shoe-3.png', this)">
+                        <div class="gallery-thumbnail">
                             <img src="shoe-3.png" alt="Thala Horizon Olive">
                         </div>
-                        <div class="gallery-thumbnail" onclick="changeImage('shoe-4.png', this)">
+                        <div class="gallery-thumbnail">
                             <img src="shoe-4.png" alt="Thala Onyx Black">
                         </div>
-                        <div class="gallery-thumbnail" onclick="changeImage('shoe-5.png', this)">
+                        <div class="gallery-thumbnail">
                             <img src="shoe-5.png" alt="Thala Trail Orange">
                         </div>
                     </div>
                 </div>
-                
-                <!-- RIGHT COLUMN: Product Purchase & Details Panel (Requirement 1) -->
+
                 <div class="product-details-column">
                     <span style="background-color: var(--primary-color); color: white; font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">
                         Sale Active
                     </span>
                     <h1 style="margin-top: 15px;">Thala Impulse 7</h1>
-                    
-                    <!-- Price Row with original and current prices (Requirement 1) -->
+
                     <div class="price-row">
                         <span class="original-price">$180.00</span>$149.00
                     </div>
-                    
-                    <!-- Description (Requirement 1) -->
+
                     <p>
                         Engineered with a responsive, energy-returning foam midsole and breathable mesh upper. The Thala Impulse 7 offers unmatched stability for long-distance runs and daily cross-training. Crafted to provide high performance and a stylish athletic aesthetic, curated by the legend MS Dhoni himself.
                     </p>
-                    
-                    <!-- Options Selection (Color and Size) -->
+
                     <div style="margin-bottom: 20px;">
                         <span style="font-weight: 600; font-size: 14px; display: block; margin-bottom: 8px;">Select Size (US Men):</span>
                         <div style="display: flex; gap: 8px;">
@@ -111,21 +93,16 @@
                         </div>
                     </div>
 
-                    <!-- Purchase Form Area containing quantity selector & Add to Cart button (Requirement 1) -->
                     <div class="purchase-options">
                         <div class="quantity-row">
                             <span class="qty-label">Quantity:</span>
                             <div class="qty-selector">
-                                <!-- Minus spinner button -->
-                                <button type="button" class="qty-btn" onclick="updateQty(-1)">&minus;</button>
-                                <!-- Quantity input field -->
+                                <button type="button" class="qty-btn">&minus;</button>
                                 <input type="number" id="qty-value" class="qty-input" value="1" min="1" max="99">
-                                <!-- Plus spinner button -->
-                                <button type="button" class="qty-btn" onclick="updateQty(1)">&plus;</button>
+                                <button type="button" class="qty-btn">&plus;</button>
                             </div>
                         </div>
-                        
-                        <!-- Add to Cart Button linking to cart page -->
+
                         <a href="cart.html" class="btn btn-primary" style="width: 100%; text-align: center; font-size: 16px;">
                             <i class="fas fa-shopping-bag" style="margin-right: 8px;"></i> Add to Cart
                         </a>
@@ -136,7 +113,6 @@
         </div>
     </main>
 
-    <!-- FOOTER (matches other pages) -->
     <footer>
         <div class="container">
             <p>&copy; 2026 Thala 7 Footwear Co. All rights reserved. Designed for Intro to CSS school assignment.</p>
@@ -147,47 +123,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- INTERACTIVE SCRIPTS: Basic, clear JavaScript for dynamic actions -->
-    <script>
-        // 1. Swaps the main product image and adds a border to the active thumbnail
-        function changeImage(imagePath, clickedThumbnail) {
-            // Change the src of the main image
-            document.getElementById('main-product-image').src = imagePath;
-            
-            // Get all thumbnails
-            var thumbnails = document.getElementsByClassName('gallery-thumbnail');
-            
-            // Loop through thumbnails to remove the 'active' class
-            for (var i = 0; i < thumbnails.length; i++) {
-                thumbnails[i].classList.remove('active');
-            }
-            
-            // Add the 'active' class to the one we just clicked
-            clickedThumbnail.classList.add('active');
-        }
-
-        // 2. Changes the value of the quantity input spinner
-        function updateQty(amount) {
-            var qtyInput = document.getElementById('qty-value');
-            var currentVal = parseInt(qtyInput.value);
-            
-            // Check if current quantity is not a valid number
-            if (isNaN(currentVal)) {
-                currentVal = 1;
-            }
-            
-            // Add or subtract the amount
-            currentVal = currentVal + amount;
-            
-            // Make sure quantity is at least 1
-            if (currentVal < 1) {
-                currentVal = 1;
-            }
-            
-            qtyInput.value = currentVal;
-        }
-    </script>
 
 </body>
 </html>

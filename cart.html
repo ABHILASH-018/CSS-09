@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart - Thala 7</title>
-    <!-- Include Google Fonts for layout consistency -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Linking our main custom CSS stylesheet file -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- HEADER: Fixed navigation bar (matches other pages) -->
     <header>
         <div class="container nav-container">
             <div class="logo">
                 <a href="index.html">Thala <span class="accent">7</span>.</a>
             </div>
-            
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -28,7 +23,6 @@
                     <li><a href="payment.html">Checkout</a></li>
                 </ul>
             </nav>
-
             <div class="nav-actions">
                 <a href="cart.html" class="cart-icon-btn">
                     <i class="fas fa-shopping-cart"></i>
@@ -38,18 +32,14 @@
         </div>
     </header>
 
-    <!-- MAIN BODY CONTENT -->
     <main>
         <div class="container">
             <h1 style="margin: 30px 0 10px 0; font-size: 32px; color: var(--primary-color);">Your Shopping Cart</h1>
-            
-            <!-- Two-column Flexbox layout for Cart: Items and Coupons on Left, Price Summary on Right -->
+
             <div class="cart-layout">
-                
-                <!-- LEFT CONTAINER: Cart Table & Coupon Entry Box (Requirement 5) -->
+
                 <div class="cart-left-container">
-                    
-                    <!-- Table showing list of items in the cart -->
+
                     <table class="cart-table" id="cart-items-table">
                         <thead>
                             <tr>
@@ -61,7 +51,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Item 1: Thala Impulse 7 -->
                             <tr class="cart-item-row">
                                 <td>
                                     <div class="cart-product-info">
@@ -75,23 +64,19 @@
                                 <td class="unit-price">$149.00</td>
                                 <td>
                                     <div class="qty-selector" style="width: fit-content;">
-                                        <!-- Decrease qty button -->
-                                        <button type="button" class="qty-btn" onclick="changeQtyRow(this, -1)">&minus;</button>
-                                        <input type="number" class="qty-input row-qty" value="1" min="1" max="99" onchange="recalcCart()">
-                                        <!-- Increase qty button -->
-                                        <button type="button" class="qty-btn" onclick="changeQtyRow(this, 1)">&plus;</button>
+                                        <button type="button" class="qty-btn">&minus;</button>
+                                        <input type="number" class="qty-input row-qty" value="1" min="1" max="99">
+                                        <button type="button" class="qty-btn">&plus;</button>
                                     </div>
                                 </td>
                                 <td class="row-total">$149.00</td>
                                 <td>
-                                    <!-- Remove item button -->
-                                    <button type="button" class="remove-btn" onclick="removeCartRow(this)">
+                                    <button type="button" class="remove-btn">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
                                 </td>
                             </tr>
-                            
-                            <!-- Item 2: Thala Glide Navy -->
+
                             <tr class="cart-item-row">
                                 <td>
                                     <div class="cart-product-info">
@@ -105,17 +90,14 @@
                                 <td class="unit-price">$129.00</td>
                                 <td>
                                     <div class="qty-selector" style="width: fit-content;">
-                                        <!-- Decrease qty button -->
-                                        <button type="button" class="qty-btn" onclick="changeQtyRow(this, -1)">&minus;</button>
-                                        <input type="number" class="qty-input row-qty" value="1" min="1" max="99" onchange="recalcCart()">
-                                        <!-- Increase qty button -->
-                                        <button type="button" class="qty-btn" onclick="changeQtyRow(this, 1)">&plus;</button>
+                                        <button type="button" class="qty-btn">&minus;</button>
+                                        <input type="number" class="qty-input row-qty" value="1" min="1" max="99">
+                                        <button type="button" class="qty-btn">&plus;</button>
                                     </div>
                                 </td>
                                 <td class="row-total">$129.00</td>
                                 <td>
-                                    <!-- Remove item button -->
-                                    <button type="button" class="remove-btn" onclick="removeCartRow(this)">
+                                    <button type="button" class="remove-btn">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
                                 </td>
@@ -123,55 +105,46 @@
                         </tbody>
                     </table>
 
-                    <!-- Coupon Input and Apply Button inside the LEFT container (Requirement 5) -->
                     <div class="coupon-container">
                         <h3>Have a Coupon Code?</h3>
                         <p style="font-size: 13px; color: #666666; margin-bottom: 12px;">Enter your code below to receive discounts on your footwear purchase.</p>
                         <div class="coupon-group">
                             <input type="text" id="coupon-field" class="coupon-input" placeholder="Promo Code (e.g. THALA7)">
-                            <button type="button" class="btn btn-primary" style="padding: 10px 20px;" onclick="applyPromoCode()">Apply Code</button>
+                            <button type="button" class="btn btn-primary" style="padding: 10px 20px;">Apply Code</button>
                         </div>
                         <span id="coupon-status-msg" class="coupon-status"></span>
                     </div>
 
                 </div>
 
-                <!-- RIGHT CONTAINER: Order Summary Card details -->
                 <div class="cart-right-container">
                     <div class="summary-card">
                         <h2>Order Summary</h2>
-                        
+
                         <div class="summary-row">
                             <span>Subtotal</span>
                             <span id="summary-subtotal">$278.00</span>
                         </div>
-                        
+
                         <div class="summary-row">
                             <span>Estimated Shipping</span>
                             <span style="color: green; font-weight: bold;">Free</span>
                         </div>
-                        
+
                         <div class="summary-row">
                             <span>Tax (10%)</span>
                             <span id="summary-tax">$27.80</span>
                         </div>
-                        
-                        <div class="summary-row" id="discount-display-row" style="display: none; color: var(--accent-color); font-weight: 600;">
-                            <span>Discount (Promo Code)</span>
-                            <span id="summary-discount">-$0.00</span>
-                        </div>
-                        
+
                         <div class="summary-row total-row">
                             <span>Total Price</span>
                             <span id="summary-total">$305.80</span>
                         </div>
-                        
-                        <!-- Proceeds checkout page selection -->
+
                         <a href="payment.html" class="btn btn-primary checkout-btn">
                             Proceed to Checkout <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
                         </a>
-                        
-                        <!-- Accepted Payment Methods with Razorpay -->
+
                         <div class="payment-icons-row">
                             <span class="label-text">We Accept:</span>
                             <i class="fab fa-cc-visa" title="Visa"></i>
@@ -180,12 +153,12 @@
                             <span class="razorpay-icon" title="Razorpay">Razorpay</span>
                         </div>
                     </div>
+                </div>
 
             </div>
         </div>
     </main>
 
-    <!-- FOOTER (matches other pages) -->
     <footer>
         <div class="container">
             <p>&copy; 2026 Thala 7 Footwear Co. All rights reserved. Designed for Intro to CSS school assignment.</p>
@@ -196,127 +169,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- INTERACTIVE SCRIPTS: Basic JS variables and calculations -->
-    <script>
-        // Track whether the promo code is applied
-        var isPromoApplied = false;
-
-        // 1. Changes item row quantity with button increments
-        function changeQtyRow(button, amount) {
-            var parentDiv = button.parentNode;
-            var inputField = parentDiv.getElementsByClassName('row-qty')[0];
-            var currentVal = parseInt(inputField.value);
-            
-            // If quantity is not a number, set it to 1
-            if (isNaN(currentVal)) {
-                currentVal = 1;
-            }
-            
-            // Adjust the quantity
-            currentVal = currentVal + amount;
-            
-            // Do not let quantity go below 1
-            if (currentVal < 1) {
-                currentVal = 1;
-            }
-            
-            inputField.value = currentVal;
-            
-            // Update the totals
-            recalcCart();
-        }
-
-        // 2. Removes an item row completely
-        function removeCartRow(button) {
-            // Find parent table row and remove it
-            var row = button.parentNode.parentNode; // tr is parent of td, which is parent of button
-            if (row) {
-                row.parentNode.removeChild(row);
-                recalcCart();
-            }
-        }
-
-        // 3. Recalculates subtotal, taxes, discount, and grand total prices
-        function recalcCart() {
-            var itemRows = document.getElementsByClassName('cart-item-row');
-            var totalSubtotal = 0;
-            var totalItemsCount = 0;
-
-            // Loop through each row in the cart table
-            for (var i = 0; i < itemRows.length; i++) {
-                var row = itemRows[i];
-                
-                // Get unit price text (e.g. "$149.00") and convert to number
-                var priceText = row.getElementsByClassName('unit-price')[0].innerText;
-                // Slice off the '$' symbol at index 0 and parse float
-                var priceVal = parseFloat(priceText.slice(1));
-                if (isNaN(priceVal)) {
-                    priceVal = 0;
-                }
-                
-                // Get quantity input value
-                var qtyInput = row.getElementsByClassName('row-qty')[0];
-                var qtyVal = parseInt(qtyInput.value);
-                if (isNaN(qtyVal)) {
-                    qtyVal = 1;
-                }
-                
-                // Calculate item row total
-                var rowTotal = priceVal * qtyVal;
-                row.getElementsByClassName('row-total')[0].innerText = '$' + rowTotal.toFixed(2);
-                
-                totalSubtotal = totalSubtotal + rowTotal;
-                totalItemsCount = totalItemsCount + qtyVal;
-            }
-
-            // Calculate 10% tax
-            var salesTax = totalSubtotal * 0.10;
-            
-            // Calculate coupon discount (10% off of subtotal + tax if applied)
-            var discountVal = 0;
-            var discountRow = document.getElementById('discount-display-row');
-            
-            if (isPromoApplied) {
-                discountVal = (totalSubtotal + salesTax) * 0.10;
-                discountRow.style.display = 'flex';
-                document.getElementById('summary-discount').innerText = '-$' + discountVal.toFixed(2);
-            } else {
-                discountRow.style.display = 'none';
-            }
-
-            // Calculate final total
-            var grandTotal = totalSubtotal + salesTax - discountVal;
-
-            // Update the text values on the page
-            document.getElementById('summary-subtotal').innerText = '$' + totalSubtotal.toFixed(2);
-            document.getElementById('summary-tax').innerText = '$' + salesTax.toFixed(2);
-            document.getElementById('summary-total').innerText = '$' + grandTotal.toFixed(2);
-            
-            // Update the cart item count badge in header
-            document.getElementById('cart-badge').innerText = totalItemsCount;
-        }
-
-        // 4. Applies promo code ("THALA7") to give a 10% discount
-        function applyPromoCode() {
-            var promoInput = document.getElementById('coupon-field');
-            var statusMsg = document.getElementById('coupon-status-msg');
-            var codeVal = promoInput.value.trim().toUpperCase();
-
-            if (codeVal === 'THALA7') {
-                isPromoApplied = true;
-                statusMsg.innerText = 'Success: 10% promo code applied!';
-                statusMsg.style.color = 'green';
-            } else {
-                isPromoApplied = false;
-                statusMsg.innerText = 'Error: Invalid code. Try code "THALA7".';
-                statusMsg.style.color = 'red';
-            }
-
-            // Re-calculate the totals with/without discount
-            recalcCart();
-        }
-    </script>
 
 </body>
 </html>
