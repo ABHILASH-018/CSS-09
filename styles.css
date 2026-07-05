@@ -201,6 +201,48 @@ main {
 }
 
 /* ----------------------------------------------------
+   3b. SERVICE OVERVIEW STATS BAR (index.html)
+   ---------------------------------------------------- */
+.service-overview {
+    background-color: var(--primary-color);
+    padding: 40px 0;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: white;
+}
+
+.stat-item i {
+    font-size: 28px;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ----------------------------------------------------
    4. FEATURED PRODUCTS GRID (index.html)
    ---------------------------------------------------- */
 .featured-section {
@@ -735,6 +777,41 @@ main {
 }
 
 /* ----------------------------------------------------
+   7b. ACCEPTED PAYMENT ICONS ROW (cart.html & payment.html)
+   ---------------------------------------------------- */
+.payment-icons-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.payment-icons-row i {
+    font-size: 28px;
+    color: #555555;
+}
+
+.payment-icons-row .razorpay-icon {
+    font-weight: 800;
+    font-size: 14px;
+    color: #072654;
+    background-color: #e8edf3;
+    border-radius: 4px;
+    padding: 4px 8px;
+    letter-spacing: 0.5px;
+    font-family: var(--font-family);
+}
+
+.payment-icons-row span.label-text {
+    font-size: 11px;
+    color: #888888;
+    margin-right: 5px;
+}
+
+/* ----------------------------------------------------
    8. FOOTER STYLING
    ---------------------------------------------------- */
 footer {
@@ -802,5 +879,15 @@ footer {
     .form-row {
         flex-direction: column;
         gap: 0;
+    }
+    
+    /* Stack stats row vertically on mobile */
+    .stats-row {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    .stat-item {
+        flex-basis: 40%;
     }
 }

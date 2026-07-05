@@ -74,6 +74,13 @@
                                 <i class="fab fa-stripe"></i>
                                 <span>Stripe Express</span>
                             </label>
+                            
+                            <!-- Option 4: Razorpay -->
+                            <label class="method-option">
+                                <input type="radio" name="payment-method" id="razorpay-option" onclick="toggleCardForm(false)">
+                                <span class="razorpay-icon" style="margin-right: 10px;">R</span>
+                                <span>Razorpay</span>
+                            </label>
                         </div>
                     </div>
 
@@ -180,6 +187,15 @@
                         <div class="summary-row total-row">
                             <span>Payable Total</span>
                             <span>$275.22</span>
+                        </div>
+                        
+                        <!-- Accepted Payment Methods with Razorpay -->
+                        <div class="payment-icons-row">
+                            <span class="label-text">Accepted:</span>
+                            <i class="fab fa-cc-visa" title="Visa"></i>
+                            <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                            <i class="fab fa-cc-paypal" title="PayPal"></i>
+                            <span class="razorpay-icon" title="Razorpay">Razorpay</span>
                         </div>
                     </div>
                 </div>
