@@ -1,160 +1,606 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thala 7 - Premium Footwear</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Thala 7 Footwear Store</title>
+
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
 
+    <!-- ================= Header ================= -->
+
     <header>
-        <div class="container nav-container">
+
+        <div class="container navbar">
+
             <div class="logo">
-                <a href="index.html">Thala <span class="accent">7</span>.</a>
+                <h2>Thala <span>7</span></h2>
             </div>
+
             <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="product.html">Product Details</a></li>
-                    <li><a href="cart.html">Shopping Cart</a></li>
-                    <li><a href="payment.html">Checkout</a></li>
+                <ul>
+
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#products">Products</a>
+                    </li>
+
+                    <li>
+                        <a href="#details">Product Details</a>
+                    </li>
+
+                    <li>
+                        <a href="#cart">Shopping Cart</a>
+                    </li>
+
+                    <li>
+                        <a href="#checkout">Checkout</a>
+                    </li>
+
                 </ul>
             </nav>
-            <div class="nav-actions">
-                <div class="search-box">
-                    <input type="text" placeholder="Search...">
-                    <i class="fas fa-search"></i>
-                </div>
-                <a href="cart.html" class="cart-icon-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="badge" id="cart-badge">2</span>
-                </a>
-                <div class="profile-avatar">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-            </div>
+
         </div>
+
     </header>
 
-    <main>
+    <!-- ================= Hero Section ================= -->
 
-        <section class="hero-section">
-            <div class="container hero-grid">
-                <div class="hero-text-content">
-                    <h1>7!! Thala For <br>a <span class="accent">Reason!</span></h1>
+    <section class="hero" id="home">
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <h1>Premium Running Shoes</h1>
+
+                <p>
+                    Welcome to Thala 7 Footwear Store.
+                    Explore our premium collection of running,
+                    training and casual shoes designed for
+                    comfort and everyday performance.
+                </p>
+
+                <a href="#products" class="btn">
+                    Shop Now
+                </a>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img src="hero-shoe.png" alt="Hero Shoe">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= Featured Products ================= -->
+
+    <section id="products">
+
+        <div class="container">
+
+            <h2 class="title">
+                Featured Products
+            </h2>
+
+            <div class="product-container">
+
+                <!-- Product 1 -->
+
+                <div class="card">
+
+                    <img src="hero-shoe.png" alt="Thala Impulse 7">
+
+                    <h3>Thala Impulse 7</h3>
+
                     <p>
-                        Step into greatness with the signature collection designed for speed, stability, and everyday comfort. Experience the perfect blend of athletic performance and premium craftsmanship.
+                        Comfortable running shoe with premium cushioning.
                     </p>
-                    <a href="product.html" class="btn btn-primary">Shop Now</a>
+
+                    <h4>$149</h4>
+
+                    <a href="#details" class="btn-small">
+                        View Details
+                    </a>
+
                 </div>
-                <div class="hero-image-wrapper">
-                    <img src="hero-shoe.png" alt="Featured Thala Impulse 7 Shoe">
+
+                <!-- Product 2 -->
+
+                <div class="card">
+
+                    <img src="shoe-1.png" alt="Thala Glide">
+
+                    <h3>Thala Glide</h3>
+
+                    <p>
+                        Lightweight shoe for daily workouts.
+                    </p>
+
+                    <h4>$129</h4>
+
+                    <a href="#details" class="btn-small">
+                        View Details
+                    </a>
+
                 </div>
+
+                <!-- Product 3 -->
+
+                <div class="card">
+
+                    <img src="shoe-2.png" alt="Thala Strike">
+
+                    <h3>Thala Strike</h3>
+
+                    <p>
+                        Stylish training shoe for active users.
+                    </p>
+
+                    <h4>$139</h4>
+
+                    <a href="#details" class="btn-small">
+                        View Details
+                    </a>
+
+                </div>
+
+                <!-- Product 4 -->
+
+                <div class="card">
+
+                    <img src="shoe-3.png" alt="Thala Horizon">
+
+                    <h3>Thala Horizon</h3>
+
+                    <p>
+                        Casual sneaker for everyday wear.
+                    </p>
+
+                    <h4>$119</h4>
+
+                    <a href="#details" class="btn-small">
+                        View Details
+                    </a>
+
+                </div>
+
+                <!-- Product 5 -->
+
+                <div class="card">
+
+                    <img src="shoe-4.png" alt="Thala Black">
+
+                    <h3>Thala Black Edition</h3>
+
+                    <p>
+                        Modern black sneaker with premium finish.
+                    </p>
+
+                    <h4>$159</h4>
+
+                    <a href="#details" class="btn-small">
+                        View Details
+                    </a>
+
+                </div>
+
+                <!-- Product 6 -->
+
+                <div class="card">
+
+                    <img src="shoe-5.png" alt="Thala Orange">
+
+                    <h3>Thala Orange Edition</h3>
+
+                    <p>
+                        Limited edition sports shoe.
+                    </p>
+
+                    <h4>$169</h4>
+
+                    <a href="#details" class="btn-small">
+                        View Details
+                    </a>
+
+                </div>
+
             </div>
-        </section>
 
-        <section class="service-overview">
-            <div class="container stats-row">
-                <div class="stat-item">
-                    <i class="fas fa-star"></i>
-                    <span class="stat-number">2k+</span>
-                    <span class="stat-label">Reviews</span>
+        </div>
+
+    </section>
+
+    <!-- ================= Product Details ================= -->
+
+    <section id="details">
+
+        <div class="container">
+
+            <h2 class="title">
+                Product Details
+            </h2>
+
+            <div class="details">
+
+                <div class="left">
+
+                    <img src="hero-shoe.png" alt="Thala Impulse 7">
+
                 </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <span class="stat-number">30k+</span>
-                    <span class="stat-label">Customers</span>
+
+                <div class="right">
+
+                    <h2>Thala Impulse 7</h2>
+
+                    <h3>$149</h3>
+
+                    <p>
+                        The Thala Impulse 7 is built with a breathable
+                        mesh upper and soft cushioning to provide
+                        maximum comfort for running, walking and
+                        everyday activities.
+                    </p>
+
+                    <h4>Select Size</h4>
+
+                    <div class="sizes">
+
+                        <span>7</span>
+                        <span>8</span>
+                        <span>9</span>
+                        <span>10</span>
+                        <span>11</span>
+
+                    </div>
+
+                    <br>
+
+                    <label for="quantity">
+                        Quantity
+                    </label>
+
+                    <br>
+
+                    <input type="number"
+                           id="quantity"
+                           value="1"
+                           min="1">
+
+                    <br><br>
+
+                    <a href="#cart" class="btn">
+                        Add to Cart
+                    </a>
+
                 </div>
-                <div class="stat-item">
-                    <i class="fas fa-thumbs-up"></i>
-                    <span class="stat-number">4.5/5</span>
-                    <span class="stat-label">Rating</span>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">High Quality</span>
-                </div>
+
             </div>
-        </section>
 
-        <section class="featured-section">
-            <div class="container">
-                <h2 class="section-title">Our Featured Collection</h2>
+        </div>
 
-                <div class="products-grid">
+    </section>
 
-                    <div class="product-card">
-                        <span class="product-badge">Sale</span>
-                        <div class="product-img-holder">
-                            <img src="hero-shoe.png" alt="Thala Impulse 7 Shoe">
-                        </div>
-                        <div class="product-details">
-                            <span class="product-category">Running</span>
-                            <h3 class="product-name"><a href="product.html">Thala Impulse 7</a></h3>
-                            <div class="product-price">
-                                <span class="original-price">$180.00</span>$149.00
+    <!-- ================= Shopping Cart ================= -->
+
+    <section id="cart">
+
+        <div class="container">
+
+            <h2 class="title">
+                Shopping Cart
+            </h2>
+
+            <div class="cart-container">
+
+                <div class="cart-left">
+
+                    <table>
+
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+
+                        <tr>
+
+                            <td>
+
+                                <div class="cart-product">
+
+                                    <img src="hero-shoe.png" alt="Thala Impulse 7">
+
+                                    <div>
+
+                                        <h4>Thala Impulse 7</h4>
+
+                                        <p>Running Shoe</p>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>$149</td>
+
+                            <td>
+
+                                <input
+                                    type="number"
+                                    value="1"
+                                    min="1">
+
+                            </td>
+
+                            <td>$149</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+
+                                <div class="cart-product">
+
+                                    <img src="shoe-1.png" alt="Thala Glide">
+
+                                    <div>
+
+                                        <h4>Thala Glide</h4>
+
+                                        <p>Sports Shoe</p>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>$129</td>
+
+                            <td>
+
+                                <input
+                                    type="number"
+                                    value="1"
+                                    min="1">
+
+                            </td>
+
+                            <td>$129</td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <div class="cart-right">
+
+                    <h3>Order Summary</h3>
+
+                    <div class="summary">
+
+                        <p>
+                            <span>Subtotal</span>
+                            <span>$278</span>
+                        </p>
+
+                        <p>
+                            <span>Shipping</span>
+                            <span>Free</span>
+                        </p>
+
+                        <p>
+                            <span>Tax</span>
+                            <span>$27.80</span>
+                        </p>
+
+                        <hr>
+
+                        <p class="total">
+
+                            <span>Total</span>
+
+                            <span>$305.80</span>
+
+                        </p>
+
+                    </div>
+
+                    <a href="#checkout" class="btn">
+                        Proceed to Checkout
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= Checkout ================= -->
+
+    <section id="checkout">
+
+        <div class="container">
+
+            <h2 class="title">
+                Checkout
+            </h2>
+
+            <div class="checkout-container">
+
+                <div class="checkout-left">
+
+                    <form>
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Enter your name">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            placeholder="Enter your email">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            placeholder="Enter your phone number">
+
+                        <label>
+                            Address
+                        </label>
+
+                        <textarea
+                            rows="4"
+                            placeholder="Enter your address"></textarea>
+
+                        <label>
+                            Card Number
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="XXXX XXXX XXXX XXXX">
+
+                        <div class="payment-row">
+
+                            <div>
+
+                                <label>
+                                    Expiry Date
+                                </label>
+
+                                <input
+                                    type="text"
+                                    placeholder="MM / YY">
+
                             </div>
-                            <a href="product.html" class="view-details-btn">View Details</a>
-                        </div>
-                    </div>
 
-                    <div class="product-card">
-                        <div class="product-img-holder">
-                            <img src="shoe-1.png" alt="Thala Glide Navy Shoe">
-                        </div>
-                        <div class="product-details">
-                            <span class="product-category">Running</span>
-                            <h3 class="product-name"><a href="product.html">Thala Glide Navy</a></h3>
-                            <div class="product-price">$129.00</div>
-                            <a href="product.html" class="view-details-btn">View Details</a>
-                        </div>
-                    </div>
+                            <div>
 
-                    <div class="product-card">
-                        <span class="product-badge">Best Seller</span>
-                        <div class="product-img-holder">
-                            <img src="shoe-2.png" alt="Thala Strike Red Shoe">
-                        </div>
-                        <div class="product-details">
-                            <span class="product-category">Training</span>
-                            <h3 class="product-name"><a href="product.html">Thala Strike Red</a></h3>
-                            <div class="product-price">$139.00</div>
-                            <a href="product.html" class="view-details-btn">View Details</a>
-                        </div>
-                    </div>
+                                <label>
+                                    CVV
+                                </label>
 
-                    <div class="product-card">
-                        <div class="product-img-holder">
-                            <img src="shoe-3.png" alt="Thala Horizon Olive Shoe">
+                                <input
+                                    type="password"
+                                    placeholder="123">
+
+                            </div>
+
                         </div>
-                        <div class="product-details">
-                            <span class="product-category">Lifestyle</span>
-                            <h3 class="product-name"><a href="product.html">Thala Horizon Olive</a></h3>
-                            <div class="product-price">$119.00</div>
-                            <a href="product.html" class="view-details-btn">View Details</a>
-                        </div>
+
+                        <button type="submit" class="btn">
+                            Place Order
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <div class="checkout-right">
+
+                    <h3>Payment Summary</h3>
+
+                    <div class="summary">
+
+                        <p>
+                            <span>Items</span>
+                            <span>2</span>
+                        </p>
+
+                        <p>
+                            <span>Subtotal</span>
+                            <span>$278</span>
+                        </p>
+
+                        <p>
+                            <span>Shipping</span>
+                            <span>Free</span>
+                        </p>
+
+                        <p>
+                            <span>Tax</span>
+                            <span>$27.80</span>
+                        </p>
+
+                        <hr>
+
+                        <p class="total">
+
+                            <span>Total</span>
+
+                            <span>$305.80</span>
+
+                        </p>
+
                     </div>
 
                 </div>
-            </div>
-        </section>
 
-    </main>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= Footer ================= -->
 
     <footer>
+
         <div class="container">
-            <p>&copy; 2026 Thala 7 Footwear Co. All rights reserved. Designed for Intro to CSS school assignment.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact Us</a>
-            </div>
+
+            <h3>Thala 7 Footwear Store</h3>
+
+            <p>
+                Premium footwear designed for comfort,
+                performance and everyday style.
+            </p>
+
+            <p>
+                &copy; 2026 Thala 7 Footwear Store.
+                All Rights Reserved.
+            </p>
+
         </div>
+
     </footer>
 
 </body>
+
 </html>
